@@ -44,7 +44,18 @@
 /* 0 */
 /***/ function(module, exports) {
 
-	
+	var Greeter = (function () {
+	    function Greeter() {
+	    }
+	    Greeter.prototype.notify = function (measage) {
+	        return { alertMessage: measage };
+	    };
+	    return Greeter;
+	})();
+	var greeter = new Greeter;
+	var message = greeter.notify('hello');
+	alert(message.alertMessage);
+
 
 /***/ }
 /******/ ]);
