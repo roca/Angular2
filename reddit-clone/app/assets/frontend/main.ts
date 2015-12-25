@@ -6,11 +6,19 @@ import {
   bootstrap
 } from 'angular2/platform/browser';
 
+
+
 let greeter = new Greeter;
 
-let message = greeter.notify('hello');
+let message = greeter.notify('hellox');
 
 
-bootstrap(HelloWorld);
 
 alert(message.alertMessage);
+
+function main() {
+
+  return bootstrap(HelloWorld).catch(err => console.error(err));
+}
+
+document.addEventListener('DOMContentLoaded', main);
