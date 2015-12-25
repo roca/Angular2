@@ -1,6 +1,6 @@
 /// <reference path="../../../DefinitelyTyped/angular2/angular2-2.0.0-alpha.26.d.ts"/>
 //import Greeter from './greeter';
-import {HelloWorld} from './helloWorld';
+import {RedditApp} from './redditApp';
 
 import {
   bootstrap
@@ -18,7 +18,7 @@ import {
 
 function main() {
 
-  return bootstrap(HelloWorld).catch(err => console.error(err));
+  return bootstrap(RedditApp).catch(err => console.error(err));
 }
 
 document.addEventListener('DOMContentLoaded', main);
