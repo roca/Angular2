@@ -9,8 +9,20 @@ import {
 
 @Component({
   selector: 'hello-world',
-  template: `<div>Hello World</div>`
+  template: `
+    <ul>
+      <li *ngFor="#name of names">
+        Hello {{ name }}
+      </li>
+    </ul>
+    `
 })
 export class HelloWorld {
+
+  names: Array<string>;
+
+  constructor() {
+    this.names = ['Romel', 'Steve', 'Joe'];
+  }
 
 }
