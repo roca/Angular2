@@ -45,6 +45,19 @@
 /*!*************************************!*\
   !*** ./app/assets/frontend/main.ts ***!
   \*************************************/
+/***/ function(module, exports, __webpack_require__) {
+
+	var greeter_1 = __webpack_require__(/*! ./greeter */ 1);
+	var greeter = new greeter_1.default;
+	var message = greeter.notify('hello');
+	alert(message.alertMessage);
+
+
+/***/ },
+/* 1 */
+/*!****************************************!*\
+  !*** ./app/assets/frontend/greeter.ts ***!
+  \****************************************/
 /***/ function(module, exports) {
 
 	var Greeter = (function () {
@@ -55,9 +68,8 @@
 	    };
 	    return Greeter;
 	})();
-	var greeter = new Greeter;
-	var message = greeter.notify('hello');
-	alert(message.alertMessage);
+	Object.defineProperty(exports, "__esModule", { value: true });
+	exports.default = Greeter;
 
 
 /***/ }

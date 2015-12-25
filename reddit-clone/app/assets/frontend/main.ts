@@ -1,12 +1,4 @@
-interface IMessage {
-  alertMessage: string;
-}
-
-class Greeter {
-  notify(measage: string): IMessage {
-    return {alertMessage: measage};
-  }
-}
+import Greeter from './greeter';
 
 let greeter = new Greeter;
 

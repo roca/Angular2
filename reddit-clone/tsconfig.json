@@ -9,10 +9,12 @@
     "sourceMap": true
   },
   "files": [
+    "./app/assets/frontend/greeter.ts",
     "./app/assets/frontend/main.ts"
   ],
   "filesGlob": [
-    "./app/assets/frontend/**/*.ts"
+    "./app/assets/frontend/**/*.ts",
+    "!./node_modules/**/*.ts"
   ],
   "compileOnSave": false,
   "buildOnSave": false,

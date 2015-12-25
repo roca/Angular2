@@ -5,7 +5,7 @@ module.exports = {
         filename: "bundle.js"
     },
     resolve: {
-      extensions: ['','.js','ts']
+      extensions: ['','.js','.ts']
     },
     module: {
         preLoaders: [ { test: /\.ts$/, loader: 'tslint-loader' } ],
