@@ -12,7 +12,8 @@
     "./app/assets/frontend/greeter.ts",
     "./app/assets/frontend/helloWorld.ts",
     "./app/assets/frontend/main.ts",
-    "./app/assets/frontend/redditApp.ts"
+    "./app/assets/frontend/redditApp.ts",
+    "./app/assets/frontend/redditArticle.ts"
   ],
   "filesGlob": [
     "./app/assets/frontend/**/*.ts",
