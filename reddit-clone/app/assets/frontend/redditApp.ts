@@ -8,7 +8,7 @@ import {
 
 import RedditArticle from './redditArticle';
 
-import {Article} from './redditArticle';
+import Article from './article';
 
 @Component({
   directives: [RedditArticle],
