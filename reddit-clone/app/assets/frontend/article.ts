@@ -15,5 +15,8 @@ export default class Article {
 
   voteDown() {
     this.votes -= 1;
+    if (this.votes < 0) {
+      this.votes = 0;
+    }
   }
 }
