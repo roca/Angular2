@@ -12,4 +12,9 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require es6-shim
+//= require angular2-polyfills
+//= require system.src
+//= require Rx
+//= require angular2.dev 
 //= require_tree .
