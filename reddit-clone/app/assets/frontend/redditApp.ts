@@ -5,14 +5,18 @@ import 'reflect-metadata';
 import {
   Component
 } from 'angular2/core';
+import {OnInit} from 'angular2/core';
 
 import RedditArticle from './redditArticle';
 
 import Article from './article';
+import {ArticleService} from './article.service';
+
 
 @Component({
   directives: [RedditArticle],
   selector: 'reddit',
+  providers: [ArticleService],
   template: `
     <section class="new-link">
       <div class="control-group">
@@ -28,15 +32,19 @@ import Article from './article';
     <reddit-article *ngFor="#article of articles" [article]="article"></reddit-article>
     `
 })
-export class RedditApp {
+export class RedditApp implements OnInit {
   articles: Array<Article>;
 
-  constructor() {
-    this.articles = [
-      new Article('Angular 2', 'http://angular.10'),
-      new Article('Fullstack', 'http://fullstack.io')
-    ];
-  }
+  constructor(private _articleService: ArticleService) { }
+
+    ngOnInit() {
+      this.getArticles();
+    }
+
+    getArticles() {
+      this._articleService.getArticlesSlowly().then(articles => this.articles = articles);
+    }
+
 
   addArticle(title: HTMLInputElement, link: HTMLInputElement): void {
     this.articles.push(new Article(title.value, link.value));

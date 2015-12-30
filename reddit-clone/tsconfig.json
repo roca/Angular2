@@ -9,9 +9,12 @@
     "sourceMap": true
   },
   "files": [
+    "./app/assets/frontend/article.service.ts",
+    "./app/assets/frontend/article.ts",
     "./app/assets/frontend/greeter.ts",
     "./app/assets/frontend/helloWorld.ts",
     "./app/assets/frontend/main.ts",
+    "./app/assets/frontend/mock-articles.ts",
     "./app/assets/frontend/redditApp.ts",
     "./app/assets/frontend/redditArticle.ts"
   ],
