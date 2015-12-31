@@ -6,12 +6,17 @@ class ArticlesController < ApplicationController
   end
 
   def create
-     article = Article.new(title: params[:title], link: params[:link])
+     article = Article.new(title: params[:title], link: params[:link], votes: 0)
      if article.save
        render json: article
     else
       render json: {errors: article.errors.full_message}
     end
+  end
+
+  def update
+    Article.find(params[:id]).update(votes: params[:votes])
+    render json: { head: :ok }
   end
 
   def destroy

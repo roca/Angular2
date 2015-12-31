@@ -42,12 +42,22 @@ export default class RedditArticle {
 
   voteUp() {
     this.article.voteUp();
+    this.patchOneArticle();
     return false;
   }
 
   voteDown() {
     this.article.voteDown();
+    this.patchOneArticle();
     return false;
+  }
+
+  patchOneArticle() {
+    this._articleService.patchOneArticle(this.article.id, this.article.votes).subscribe(
+      null,
+      err => console.log(err),
+      () => console.log('Patch One Articles votes !')
+    );
   }
 
   delete(id: number) {

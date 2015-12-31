@@ -29,4 +29,11 @@ export class ArticleService {
     return this._http.delete('/articles/' + id);
   }
 
+  patchOneArticle(id: number, votes: number) {
+    var articleInfo = 'votes=' + votes;
+    var headers = new Headers();
+    headers.append('Content-Type', 'application/x-www-form-urlencoded');
+    return this._http.patch('/articles/' + id, articleInfo, {headers: headers});
+  }
+
 }
