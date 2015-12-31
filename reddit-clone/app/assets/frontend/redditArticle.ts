@@ -3,14 +3,17 @@
 
 import 'reflect-metadata';
 import {
-  Component, View
+  Component, View, EventEmitter
 } from 'angular2/core';
 
 import Article from './article';
+import {ArticleService} from './article.service';
 
 @Component ({
   selector: 'reddit-article',
-  properties: ['article']
+  properties: ['article'],
+  events: ['deletedOneArticle'],
+  providers: [ArticleService]
 })
 @View ({
   template: `
@@ -25,11 +28,17 @@ import Article from './article';
             <li><a href (click)="voteDown()">downvote</a></li>
           </ul>
         </div>
+        <button style="float:right;" (click)="delete(article.id)">
+          <span>&times;</span>
+        </button>
       </article>
   `
 })
 export default class RedditArticle {
   article: Article;
+  deletedOneArticle = new EventEmitter();
+
+  constructor(private _articleService: ArticleService) { }
 
   voteUp() {
     this.article.voteUp();
@@ -40,4 +49,18 @@ export default class RedditArticle {
     this.article.voteDown();
     return false;
   }
+
+  delete(id: number) {
+    console.log(id);
+    this._articleService.deletedOneArticle(id).subscribe(
+      null,
+      err => console.log(err),
+      () => {
+        console.log('deletedOneArticle event being emitted !');
+        this.deletedOneArticle.emit(null);
+      }
+    );
+
+  }
+
 }

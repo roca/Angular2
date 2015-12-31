@@ -29,7 +29,10 @@ import {ArticleService} from './article.service';
       </div>
       <button (click)="addArticle(newtitle,newlink)">Submit link</button>
     </section>
-    <reddit-article *ngFor="#article of articles" [article]="article"></reddit-article>
+    <reddit-article
+    *ngFor="#article of articles"
+    (deletedOneArticle)="getArticles()"
+    [article]="article"></reddit-article>
     `
 })
 export class RedditApp implements OnInit {
@@ -44,7 +47,10 @@ export class RedditApp implements OnInit {
     getArticles() {
       this._articleService.getArticles()
       .subscribe(
-        data => this.articles = data.map(data => new Article(data.title, data.link, data.votes)),
+        (data) => {
+          this.articles = data.map(data => new Article(data.id, data.title, data.link, data.votes));
+        }
+        ,
         err => console.log(err),
         () => console.log('Articles get request Complete')
       );
@@ -52,10 +58,12 @@ export class RedditApp implements OnInit {
 
 
   addArticle(title: HTMLInputElement, link: HTMLInputElement): void {
-    this.articles.push(new Article(title.value, link.value));
-    console.log('Adding article with title', title.value,
-                'and link ', link.value ) ;
-    title.value = '';
-    link.value = '';
+    this._articleService.addArticle(title.value, link.value)
+    .subscribe(
+      data => this.articles.push(new Article(data.id, data.title, data.link)),
+      err => console.log(err),
+      () => console.log('Articles post request Complete')
+    );
   }
+
 }
