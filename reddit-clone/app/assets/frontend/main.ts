@@ -5,6 +5,7 @@ import {RedditApp} from './redditApp';
 import {
   bootstrap
 } from 'angular2/platform/browser';
+import {HTTP_PROVIDERS} from 'angular2/http';
 
 
 
@@ -18,7 +19,7 @@ import {
 
 function main() {
 
-  return bootstrap(RedditApp).catch(err => console.error(err));
+  return bootstrap(RedditApp, [HTTP_PROVIDERS]).catch(err => console.error(err));
 }
 
 document.addEventListener('DOMContentLoaded', main);

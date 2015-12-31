@@ -3,10 +3,10 @@ export default class Article {
   link: string;
   votes: number;
 
-  constructor(title: string, link: string) {
+  constructor(title: string, link: string, votes: number = 0) {
     this.title = title;
     this.link = link;
-    this.votes = 0;
+    this.votes = votes;
   }
 
   voteUp() {

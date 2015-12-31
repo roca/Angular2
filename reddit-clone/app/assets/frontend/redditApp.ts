@@ -42,7 +42,12 @@ export class RedditApp implements OnInit {
     }
 
     getArticles() {
-      this._articleService.getArticlesSlowly().then(articles => this.articles = articles);
+      this._articleService.getArticles()
+      .subscribe(
+        data => this.articles = data.map(data => new Article(data.title, data.link, data.votes)),
+        err => console.log(err),
+        () => console.log('Articles get request Complete')
+      );
     }
 
 
