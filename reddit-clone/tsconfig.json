@@ -9,6 +9,7 @@
     "sourceMap": true
   },
   "files": [
+    "./app/assets/frontend/appComponents.ts",
     "./app/assets/frontend/article.service.ts",
     "./app/assets/frontend/article.ts",
     "./app/assets/frontend/greeter.ts",
