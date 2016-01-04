@@ -5,6 +5,10 @@ class ArticlesController < ApplicationController
     render json: Article.all
   end
 
+  def show
+    render json: Article.find(params[:id])
+  end
+
   def create
      article = Article.new(title: params[:title], link: params[:link], votes: 0)
      if article.save

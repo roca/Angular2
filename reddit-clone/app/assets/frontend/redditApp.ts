@@ -1,7 +1,3 @@
-/// <reference path="../../../DefinitelyTyped/angular2/angular2-2.0.0-alpha.26.d.ts"/>
-
-
-import 'reflect-metadata';
 import {
   Component
 } from 'angular2/core';
@@ -64,6 +60,8 @@ export class RedditApp implements OnInit {
       err => console.log(err),
       () => console.log('Articles post request Complete')
     );
+    title.value = '';
+    link.value = '';
   }
 
 }

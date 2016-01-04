@@ -25,6 +25,11 @@ export class ArticleService {
     return this._http.post('/articles', articleInfo, {headers: headers}).map(res => res.json());
   }
 
+  getOneArticle(id: number) {
+    return this._http.get('/articles/' + id).map(res => res.json());
+  }
+
+
   deletedOneArticle(id: number) {
     return this._http.delete('/articles/' + id);
   }

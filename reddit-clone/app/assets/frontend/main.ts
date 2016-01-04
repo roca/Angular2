@@ -1,13 +1,11 @@
-/// <reference path="../../../DefinitelyTyped/angular2/angular2-2.0.0-alpha.26.d.ts"/>
-//import Greeter from './greeter';
-import {RedditApp} from './redditApp';
-
 import {
   bootstrap
 } from 'angular2/platform/browser';
 import {HTTP_PROVIDERS} from 'angular2/http';
+import {RouteConfig, ROUTER_PROVIDERS} from 'angular2/router';
 
 
+import {AppComponent} from './appComponents';
 
 //let greeter = new Greeter;
 
@@ -19,7 +17,10 @@ import {HTTP_PROVIDERS} from 'angular2/http';
 
 function main() {
 
-  return bootstrap(RedditApp, [HTTP_PROVIDERS]).catch(err => console.error(err));
+  return bootstrap(
+    AppComponent,
+    [HTTP_PROVIDERS, ROUTER_PROVIDERS]
+  ).catch(err => console.error(err));
 }
 
 document.addEventListener('DOMContentLoaded', main);

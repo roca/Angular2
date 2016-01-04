@@ -1,10 +1,8 @@
-/// <reference path="../../../DefinitelyTyped/angular2/angular2-2.0.0-alpha.26.d.ts"/>
-
-
-import 'reflect-metadata';
 import {
   Component, View, EventEmitter
 } from 'angular2/core';
+import {Router}              from 'angular2/router';
+
 
 import Article from './article';
 import {ArticleService} from './article.service';
@@ -31,6 +29,9 @@ import {ArticleService} from './article.service';
         <button style="float:right;" (click)="delete(article.id)">
           <span>&times;</span>
         </button>
+        <button style="float:right;" (click)="onSelect(article.id)">
+          <span>detail</span>
+        </button>
       </article>
   `
 })
@@ -38,7 +39,7 @@ export default class RedditArticle {
   article: Article;
   deletedOneArticle = new EventEmitter();
 
-  constructor(private _articleService: ArticleService) { }
+  constructor(private _articleService: ArticleService, private _router: Router) { }
 
   voteUp() {
     this.article.voteUp();
@@ -71,6 +72,10 @@ export default class RedditArticle {
       }
     );
 
+  }
+
+  onSelect(id: number) {
+    this._router.navigate( ['ArticleDetails', { id: id }] );
   }
 
 }

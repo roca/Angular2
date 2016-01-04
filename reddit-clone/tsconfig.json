@@ -17,7 +17,8 @@
     "./app/assets/frontend/main.ts",
     "./app/assets/frontend/mock-articles.ts",
     "./app/assets/frontend/redditApp.ts",
-    "./app/assets/frontend/redditArticle.ts"
+    "./app/assets/frontend/redditArticle.ts",
+    "./app/assets/frontend/redditArticleDetails.ts"
   ],
   "filesGlob": [
     "./app/assets/frontend/**/*.ts",
