@@ -67,7 +67,7 @@ export class RedditArticleDetails implements OnInit  {
   }
 
   patchOneArticle() {
-    this._articleService.patchOneArticle(this.article.id, this.article.votes).subscribe(
+    this._articleService.patchArticleVotes(this.article.id, this.article.votes).subscribe(
       null,
       err => console.log(err),
       () => console.log('Patch One Articles votes !')

@@ -19,7 +19,7 @@ import {ArticleService} from './article.service';
         <div class="votes">{{ article.votes }}</div>
         <div class="main">
           <h2>
-            <a href="{{ article.link }}">{{ article.title }}</a>
+            <a href="{{ article.link }}" target="_blank">{{ article.title }}</a>
           </h2>
           <ul>
             <li><a href (click)="voteUp()">upvote</a></li>
@@ -54,7 +54,7 @@ export default class RedditArticle {
   }
 
   patchOneArticle() {
-    this._articleService.patchOneArticle(this.article.id, this.article.votes).subscribe(
+    this._articleService.patchArticleVotes(this.article.id, this.article.votes).subscribe(
       null,
       err => console.log(err),
       () => console.log('Patch One Articles votes !')
