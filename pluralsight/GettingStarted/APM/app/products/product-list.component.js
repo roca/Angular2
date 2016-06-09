@@ -51,10 +51,14 @@ System.register(["angular2/core"], function(exports_1, context_1) {
                 ProductListComponent.prototype.toggleImage = function () {
                     this.showImage = !this.showImage;
                 };
+                ProductListComponent.prototype.ngOnInit = function () {
+                    console.log("In OnInit");
+                };
                 ProductListComponent = __decorate([
                     core_1.Component({
                         selector: "pm-products",
-                        templateUrl: "app/products/product-list.component.html"
+                        templateUrl: "app/products/product-list.component.html",
+                        styleUrls: ["app/products/product-list.component.css"],
                     }), 
                     __metadata('design:paramtypes', [])
                 ], ProductListComponent);
