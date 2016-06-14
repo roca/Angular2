@@ -6,7 +6,7 @@ import { IProduct } from "./product";
 
 @Injectable()
 export class ProductService {
-  private _productUrl: string = "api/products/products.json";
+  private _productUrl: string = `${location.origin}/api/products/products.json`;
   constructor( private _http: Http) {}
 
   getProducts(): Observable<IProduct[]> {

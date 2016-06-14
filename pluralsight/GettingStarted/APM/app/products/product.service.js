@@ -27,7 +27,7 @@ System.register(["angular2/core", "angular2/http", "rxjs/Observable"], function(
             ProductService = (function () {
                 function ProductService(_http) {
                     this._http = _http;
-                    this._productUrl = "api/products/products.json";
+                    this._productUrl = location.origin + "/api/products/products.json";
                 }
                 ProductService.prototype.getProducts = function () {
                     return this._http.get(this._productUrl)
