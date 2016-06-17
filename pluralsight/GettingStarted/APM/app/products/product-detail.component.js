@@ -11,27 +11,27 @@ System.register(["angular2/core"], function(exports_1, context_1) {
         if (typeof Reflect === "object" && typeof Reflect.metadata === "function") return Reflect.metadata(k, v);
     };
     var core_1;
-    var WelcomeComponent;
+    var ProductDetailComponent;
     return {
         setters:[
             function (core_1_1) {
                 core_1 = core_1_1;
             }],
         execute: function() {
-            WelcomeComponent = (function () {
-                function WelcomeComponent() {
-                    this.pageTitle = "Welcome";
+            ProductDetailComponent = (function () {
+                function ProductDetailComponent() {
+                    this.pageTitle = "Product Detail";
                 }
-                WelcomeComponent = __decorate([
+                ProductDetailComponent = __decorate([
                     core_1.Component({
-                        templateUrl: "app/home/welcome.component.html"
+                        templateUrl: "app/products/product-detail.component.html"
                     }), 
                     __metadata('design:paramtypes', [])
-                ], WelcomeComponent);
-                return WelcomeComponent;
+                ], ProductDetailComponent);
+                return ProductDetailComponent;
             }());
-            exports_1("WelcomeComponent", WelcomeComponent);
+            exports_1("ProductDetailComponent", ProductDetailComponent);
         }
     }
 });
-//# sourceMappingURL=welcome.component.js.map
+//# sourceMappingURL=product-detail.component.js.map
