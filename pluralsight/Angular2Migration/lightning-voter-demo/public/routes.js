@@ -26,7 +26,7 @@ app.config(function($routeProvider) {
       });
     }
 
-  }
+  };
 
   $routeProvider
     .when('/admin/login', {
@@ -79,8 +79,7 @@ app.config(function($routeProvider) {
       }
     })
     .when('/createsession', {
-      controller: 'createNewSessionCtrl',
-      templateUrl: 'home/createNewSession.html',
+      template: '<create-new-session user-sessions="$resolve.userSessions"></create-new-session>',
       resolve: {
         userSessions: routeResolvers.userSessions,
       }
@@ -98,5 +97,5 @@ app.config(function($routeProvider) {
       controllerAs: 'vm',
       template: '<logout></logout>'
     })
-    .otherwise('/home')
-})
+    .otherwise('/home');
+});
