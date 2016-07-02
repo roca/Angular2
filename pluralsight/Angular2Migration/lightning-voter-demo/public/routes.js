@@ -71,9 +71,7 @@ app.config(function($routeProvider) {
       }
     })
     .when('/profile', {
-      controller: 'profileCtrl',
-      templateUrl: 'profile/profile.html',
-      controllerAs: 'vm',
+      template: '<profile></profile>',
       resolve: {
         userProfile: routeResolvers.loggedIn,
       }
@@ -85,16 +83,12 @@ app.config(function($routeProvider) {
       }
     })
     .when('/login', {
-      controller: 'loginCtrl',
-      templateUrl: 'security/login.html',
-      controllerAs: 'vm',
+      template: '<login></login>',
       resolve: {
         currentAuth: routeResolvers.waitForAuth
       }
     })
     .when('/logout', {
-      controller: 'logoutCtrl',
-      controllerAs: 'vm',
       template: '<logout></logout>'
     })
     .otherwise('/home');

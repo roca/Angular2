@@ -1,10 +1,15 @@
-angular.module('app').controller('loginCtrl', 
-    function($location, currentIdentity, auth, toastr) {
-      
+angular.module('app').component('login',{
+  
+  templateUrl: "/security/login.html",
+  bindings: {
+
+  },
+  controller:  function($location, currentIdentity, auth, toastr) {
+
   if(currentIdentity.authenticated()) {
     $location.path('/home');
   }
-  
+
   this.login = function() {
     auth.login({
       username: this.email,
@@ -13,6 +18,7 @@ angular.module('app').controller('loginCtrl',
       $location.path('/home');
     }, function(err) {
       toastr.error(err);
-    })
-  }
-})
+    });
+  };
+}
+});
