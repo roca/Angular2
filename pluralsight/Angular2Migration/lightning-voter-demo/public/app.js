@@ -7,5 +7,10 @@ app.run(function($rootScope, $location) {
     if(err === 'NOT_AUTHORIZED') {
       $location.path("/home");
     }
-  })
-})
+  });
+});
+
+
+angular.element(document).ready(function () {
+   angular.bootstrap(document.body,['app']);
+});
