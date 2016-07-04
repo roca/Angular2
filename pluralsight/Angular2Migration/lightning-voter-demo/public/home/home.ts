@@ -1,4 +1,4 @@
-angular.module('app').component('home', {
+angular.module("app").component("home", {
         templateUrl: "/home/home.html",
         bindings: {
             userSessions: "="
@@ -7,20 +7,18 @@ angular.module('app').component('home', {
 
 
         this.currentUser = currentIdentity.currentUser;
-        
+
         this.setNextSessionToReview = function() {
-          sessions.getNextUnreviewedSession(currentIdentity.currentUser.id).then(function(response) {
+          sessions.getNextUnreviewedSession(currentIdentity.currentUser.id).then((response) => {
             this.currentSessionToReview = response.data;
-          }.bind(this));
+          });
         };
         this.setNextSessionToReview();
 
 
         this.voteYes = function() {
           sessions.incrementVote(this.currentSessionToReview.id)
-          .then(function() {
-            return sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id);
-          }.bind(this))
+          .then(() => sessions.addReviewedSession(this.currentUser.id, this.currentSessionToReview.id))
           .then(function() {
             this.setNextSessionToReview();
 

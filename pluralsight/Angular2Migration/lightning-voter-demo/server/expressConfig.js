@@ -14,12 +14,13 @@ module.exports = function(app) {
   app.use(bodyParser.json());
   app.use(bodyParser.urlencoded({ extended: false }));
   app.use(session({
-    secret: 'multi vision unicorns', 
+    secret: 'multi vision unicorns',
     resave:false,
     saveUninitialized: true
   }));
   app.use(passport.initialize());
   app.use(passport.session());
-  
+
   app.use(express.static(rootPath + '/public'));
+  app.use(express.static(rootPath + '/build'));
 }

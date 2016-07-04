@@ -1,13 +1,13 @@
-angular.module('app').component('createNewSession',{
+angular.module("app").component("createNewSession", {
 
     templateUrl: "/home/createNewSession.html",
-    bindings:{
+    bindings: {
         userSessions: "="
     },
-    controler: function(toastr, currentIdentity, sessions) {
+    controller: function(toastr, currentIdentity, sessions) {
 
       this.create = function() {
-        var newUserSession = {
+        let newUserSession = {
           title: this.title,
           length: parseInt(this.length),
           abstract: this.abstract,
@@ -22,6 +22,6 @@ angular.module('app').component('createNewSession',{
           console.log(response);
           this.userSessions.push(response.data);
         }.bind(this));
-      }
+      };
     }
 });

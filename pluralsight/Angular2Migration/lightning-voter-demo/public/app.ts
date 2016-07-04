@@ -1,4 +1,5 @@
 let app = angular.module("app", ["ngRoute", "toastr"]);
+
 app.run(function($rootScope, $location) {
   $rootScope.$on("$routeChangeError", function(e, next, prev, err) {
     if (err === "AUTH_REQUIRED") {
@@ -10,6 +11,6 @@ app.run(function($rootScope, $location) {
   });
 });
 
-angular.element(document).ready(function () {
+angular.element(document).ready(() => {
    angular.bootstrap(document.body, ["app"]);
 });
