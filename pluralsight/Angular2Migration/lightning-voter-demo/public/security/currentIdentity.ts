@@ -1,7 +1,8 @@
 class CurrentIdentity {
-  constructor(private $http, private $q) {}
-
   currentUser: null;
+
+
+  constructor(private $http, private $q) {}
 
   setUser(user) {
     this.currentUser = user;

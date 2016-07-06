@@ -1,45 +1,46 @@
-angular.module("app").factory("sessions", function($http, $q) {
-  return {
-    getSessionsByUser: function(userId) {
-      let dfd = $q.defer();
+class Sessions {
+  constructor(public $http, public $q) {}
 
-      $http.get("/api/sessions/user/" + userId).then(function(response) {
-        dfd.resolve(response.data);
-      }, function() {
-        dfd.reject();
-      });
-      return dfd.promise;
-    },
+  getSessionsByUser(userId) {
+    let dfd = this.$q.defer();
 
-    getAllSessions: function() {
-      let dfd = $q.defer();
+    this.$http.get("/api/sessions/user/" + userId).then(function(response) {
+      dfd.resolve(response.data);
+    }, function() {
+      dfd.reject();
+    });
+    return dfd.promise;
+  }
 
-      $http.get("/api/sessions").then(function(response) {
-        dfd.resolve(response.data);
-      }, function() {
-        dfd.reject();
-      });
-      return dfd.promise;
-    },
+  getAllSessions() {
+    let dfd = this.$q.defer();
 
-    createNewSession: function(newSession) {
-      return $http.post("/api/sessions", newSession);
-    },
+    this.$http.get("/api/sessions").then(
+                                          (response) => dfd.resolve(response.data),
+                                          () => dfd.reject()
+                                        );
+    return dfd.promise;
+  }
 
-    getNextUnreviewedSession: function(userId) {
-      return $http.get(`/api/users/${ userId }/randomUnreviewedSession`);
-    },
+  createNewSession(newSession) {
+    return this.$http.post("/api/sessions", newSession);
+  }
 
-    addReviewedSession: function(userId, sessionId) {
-      return $http.post("/api/users/" + userId + "/reviewSession/" + sessionId);
-    },
+  getNextUnreviewedSession(userId) {
+    return this.$http.get(`/api/users/${ userId }/randomUnreviewedSession`);
+  }
 
-    incrementVote: function(sessionId) {
-      return $http.put("/api/sessions/" + sessionId + "/incrementVote/");
-    },
+  addReviewedSession(userId, sessionId) {
+    return this.$http.post("/api/users/" + userId + "/reviewSession/" + sessionId);
+  }
 
-    getUnreviewedCount: function(userId) {
-      return $http.get("/api/users/" + userId + "/unreviewedSessionCount");
-    }
-  };
-});
+  incrementVote(sessionId) {
+    return this.$http.put("/api/sessions/" + sessionId + "/incrementVote/");
+  }
+
+  getUnreviewedCount(userId) {
+    return this.$http.get("/api/users/" + userId + "/unreviewedSessionCount");
+  }
+}
+
+angular.module("app").service("sessions", Sessions);
