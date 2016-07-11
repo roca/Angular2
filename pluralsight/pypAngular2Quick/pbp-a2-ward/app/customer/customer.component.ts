@@ -1,11 +1,12 @@
 import { Component, Input, OnInit } from '@angular/core';
 
 @Component({
+    moduleId: __moduleName,
     selector: 'app-customer', // <app-customer>
-    templateUrl: 'app/customer/customer.component.html'
+    templateUrl: 'customer.component.html'
 })
 export class CustomerComponent implements OnInit {
-  myColour: string = 'grey';
+  myColour = 'grey';
 
   @Input() customer: {id: number, name: string};
 
