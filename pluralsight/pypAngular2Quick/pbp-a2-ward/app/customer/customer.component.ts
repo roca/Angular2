@@ -5,6 +5,8 @@ import { Component, Input, OnInit } from '@angular/core';
     templateUrl: 'app/customer/customer.component.html'
 })
 export class CustomerComponent implements OnInit {
+  myColour: string = 'grey';
+
   @Input() customer: {id: number, name: string};
 
   constructor() {}
