@@ -1,18 +1,16 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+
+const CUSTOMERS_URL = 'app/customers.json';
 
 @Injectable()
 export class CustomerService {
 
-  constructor() {}
+  constructor(private _http: Http) {}
 
   getCustomers() {
-    return [
-      {id: 1, name: 'Ward'},
-      {id: 2, name: 'Kevin'},
-      {id: 3, name: 'Eric'},
-      {id: 4, name: 'Sally'},
-      {id: 5, name: 'Emmet'},
-    ];
+    return this._http.get(CUSTOMERS_URL)
+    .map((response: Response) => response.json());
   }
 
 }
