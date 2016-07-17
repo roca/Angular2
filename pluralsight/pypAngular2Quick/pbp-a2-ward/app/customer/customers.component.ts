@@ -1,5 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import { Observable } from 'rxjs/Rx';
+import { Response } from '@angular/http';
+
+// import { Observable } from 'rxjs/Rx';
 import { CustomerComponent } from './customer.component';
 import { CustomerService } from './customer.service';
 
@@ -11,15 +13,25 @@ import { CustomerService } from './customer.service';
     providers: [ CustomerService ]
 })
 export class CustomersComponent implements OnInit {
-  customers: Observable<any[]>;
+  customers: Promise<any[]>;
+  // customers: Observable<any[]>;
 
   constructor(private _customerService: CustomerService) {}
+
   ngOnInit() {
-    this.customers = this._customerService.getCustomers()
-    .catch((err) => {
-      console.log(err);
-      return Observable.of(true);
+    this.customers = this._customerService.getCustomers() // Ignore
+    .catch((err: Error) => {
+      console.log(`Error ${err.name}: ${err.message}`);
     });
+    // Rx observable version
+    // this.customers = this._customerService.getCustomers() // Ignore
+    // .catch((err: Error) => {
+    //   // dont do this, show the user a nice message
+    //   // now we eat it, but only if the message has been
+    //   // communicated to the user
+    //   console.log(`Error ${err.name}: ${err.message}`);
+    //   return Observable.from([]);
+    // });
   }
 
 }

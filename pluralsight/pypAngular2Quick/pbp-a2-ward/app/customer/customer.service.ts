@@ -10,14 +10,25 @@ export class CustomerService {
 
   constructor(private _http: Http) {}
 
-  getCustomers() {
+  getCustomers(): Promise<Response> {
+    return this._http.get(CUSTOMERS_URL)
+    .toPromise()
+    .catch((err: Error) => {
+      console.log(`Error ${err.name}: ${err.message}`);
+      return Promise.reject(err);
+    });
+  }
+
+  getCustomers_RxObservable(): Observable<any[]> {
     return this._http.get(CUSTOMERS_URL)
     .map((response: Response) => response.json())
     .catch(this._handleError);
   }
 
-  _handleError(err: any) {
-    console.log(err);
+  _handleError(err: Error) {
+    // log this somewhere and format the message well for devs
+    // our oppertunity customize this error
+    console.log(`Error ${err.name}: ${err.message}`);
     return Observable.throw(err);
   }
 
