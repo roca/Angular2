@@ -10,7 +10,7 @@ export class CustomerService {
 
   constructor(private _http: Http) {}
 
-  getCustomers(): Promise<Response> {
+  getCustomers() {
     return this._http.get(CUSTOMERS_URL)
     .toPromise()
     .catch((err: Error) => {
