@@ -8,8 +8,7 @@ import { CustomerService } from './customer.service';
     moduleId: __moduleName,
     selector: 'app-customers', // <app-customers>
     templateUrl: 'customers.component.html',
-    directives: [ CustomerComponent ],
-    providers: [ CustomerService ]
+    directives: [ CustomerComponent ]
 })
 export class CustomersComponent implements OnInit {
   customers: any[];

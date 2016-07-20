@@ -1,11 +1,17 @@
 import { Component } from '@angular/core';
-import { CustomersComponent } from './customer/customers.component';
+// import { CustomerService } from './customer/customer.service';
+// import { CustomersComponent } from './customer/customers.component';
+
+// here is my barrel // future I woild just import './customer'
+import { CustomersComponent, CustomerService } from './customer/index';
+
 
 @Component({
     moduleId: __moduleName,
     selector: 'my-app',
     templateUrl: 'app.component.html',
-    directives: [ CustomersComponent ]
+    directives: [ CustomersComponent ],
+    providers: [ CustomerService ]
 })
 export class AppComponent {
     // [ attribute/property ] means property binding C to D
