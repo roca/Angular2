@@ -1,3 +1,25 @@
+<head>
+ <link rel="stylesheet" href="../minimal_lib/style.css">>
+
+</head>
+
+    <nav>
+    <div class="nav-wrapper">
+      <ul>
+        <li routerLinkActive="green-background">
+          <a [routerLink]="['/home']">home</a></li>
+        <li routerLinkActive="green-background">
+          <a [routerLink]="['/selection']">selection</a></li>
+        <li routerLinkActive="green-background">
+          <a [routerLink]="['/welcome']">welcome</a></li>
+      </ul>
+    </div>
+  </nav>
+  <hr>
+  
+
+<router-outlet></router-outlet>
+
 <h1>
   {{title}}
 </h1>
