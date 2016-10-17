@@ -4,8 +4,8 @@
       <div class="card-content">
         <span class="card-title">Click Events</span>
         <p>Button has been clicked {{ n }} times.</p>
-        <button class="btn" (click)="increment()">Add One</button>
-        <div (click)="increment()"> Also a clickable thing </div>
+        <button class="btn" (click)="increment($event)">Add One</button>
+        <div (click)="increment($event)"> Also a clickable thing </div>
       </div>
     </div>
   </div>
@@ -14,6 +14,8 @@
       <div class="card-content">
         <span class="card-title">Mouse Events</span>
         <div (mouseover)="over($event)" (mousemove)="move($event)">Mouse events on this</div>
+        <br/>
+        <input (keyup)="keydown($event)" type="text"/>
       </div>
     </div>
   </div>

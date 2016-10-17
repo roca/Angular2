@@ -7,7 +7,8 @@ import { Component } from '@angular/core';
 export class EventsComponent {
   n: number = 0;
 
-  increment() {
+  increment(x: any) {
+    console.log('increment: ', x);
     this.n++;
   }
 
@@ -18,5 +19,9 @@ export class EventsComponent {
   move(x: MouseEvent): void {
     this.n++;
     console.log('Move: ', x);
+  }
+  
+  keydown(x: any) {
+    console.log('Keydown: ', x);
   }
 }

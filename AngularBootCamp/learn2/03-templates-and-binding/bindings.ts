@@ -13,6 +13,7 @@ export class BindingsComponent {
   person: string;
   stringWithHtml: string;
   personObject: { mother: string; };
+  myFavoriteDog: string = "Dutches1";
   private x: string = 'Only available inside';
 
   constructor() {

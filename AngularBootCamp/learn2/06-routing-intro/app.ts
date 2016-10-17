@@ -5,18 +5,21 @@ import { RouterModule, Routes } from '@angular/router';
 import { PageComponent } from './page';
 import { HomeComponent } from './home';
 import { NameComponent } from './name';
+import { MyComponent } from './my-component'
 
 const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'home', component: HomeComponent },
-  { path: 'hello', component: NameComponent }
+  { path: 'hello', component: NameComponent },
+  { path: 'my/:id', component: MyComponent }
 ];
 
 @NgModule({
   declarations: [
     PageComponent,
     HomeComponent,
-    NameComponent
+    NameComponent,
+    MyComponent
   ],
   imports: [
     BrowserModule,

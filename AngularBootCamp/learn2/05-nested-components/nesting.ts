@@ -6,6 +6,9 @@ import { Component } from '@angular/core';
     <h4>Example application showing component nesting</h4>
     <blue-card></blue-card>
     <green-card></green-card>
+    <red-card></red-card>
   `
 })
-export class NestingComponent { }
+export class NestingComponent { 
+  
+}

@@ -17,7 +17,7 @@
 <p>Function result is {{ calculate() }}</p>
 
 <p>In some earlier alphas, this would be an error:</p>
-<p>Made up variable: {{ madeUpVariableName }}</p>
+<p>Made up variable: {{ madeUpVariableName?.pop }}</p>
 
 <h4>Sanitization</h4>
 <p>Sanitized by <b>Angular</b>:</p>
@@ -25,3 +25,5 @@
 
 <p>If you bind to innerText, the <b>browser</b> does it (note the different output):</p>
 <p [innerText]="stringWithHtml"></p>
+
+<p> My Favoirtite Dog : {{myFavoriteDog}}</p>
