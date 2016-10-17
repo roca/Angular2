@@ -16,7 +16,8 @@ const appRoutes: Routes = [
   { path: '', redirectTo: 'home', pathMatch: 'full' },
   { path: 'selection', component: SelectionScreenComponent },
   { path: 'home', component: HomeComponent },
-  { path: 'welcome', component: WelcomeScreenComponent }
+  { path: 'welcome', component: WelcomeScreenComponent },
+  { path: 'shiplist', component: ShipListComponent }
 ];
 
 @NgModule({
