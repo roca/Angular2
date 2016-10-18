@@ -1,0 +1,14 @@
+<p>
+  ship-card works!
+</p>
+<div style="margin-top: 10px" (click)="userSelectShip(ship)">
+  <div [class.battleship]="!ship.fighters" [class.carrier]="ship.fighters">Name: {{ship.fighters ? (ship.name | uppercase) : (ship.name)}}</div>
+  <div>FTL: {{ship.FTL}}</div>
+  <div> Weapons:
+    <span *ngFor="let weapon of ship.weapons; let i = index">
+      {{weapon}}
+      <span *ngIf="i < ship.weapons.length-1">,</span>
+    </span>
+  </div>
+ <div *ngIf="ship.fighters">Fighters: {{ship.fighters}}</div>
+</div>
