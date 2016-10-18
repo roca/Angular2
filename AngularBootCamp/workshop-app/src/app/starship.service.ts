@@ -1,4 +1,6 @@
 import { Injectable } from '@angular/core';
+import { Http, Response } from '@angular/http';
+import 'rxjs/add/operator/map';
 
 export interface IFighter {
   name: string;
@@ -18,40 +20,11 @@ export interface IShip {
 
 @Injectable()
 export class StarshipService {
-  private ships = [{
-    'name': 'Consitution',
-    'FTL': 'Warp Drive',
-    'weapons': [
-      'Phasers',
-      'Proton Torpedoes'
-    ],
-    fighters: false,
-    universe: 'Star Trek'
-  },
-  {
-    'name': 'Star Destroyer',
-    'FTL': 'Hyperdrive',
-    'weapons': [
-      'Laser Cannons',
-      'Ion cannons'
-    ],
-    fighters: 'TIE Fighters',
-    universe: 'Star Wars'
-  },
-  {
-    'name': 'Battlestar',
-    'FTL': 'Jump Drive',
-    'weapons': [
-      'Flak Cannons',
-      'Nuclear Missiles'
-    ],
-    fighters: 'Vipers',
-    universe: 'Battlestar Galactica'
-  }];
-  constructor() { }
+  constructor(private http: Http) { }
 
   getStarships() {
-    return this.ships;
+    return this.http.get('/assets/ships.json')
+      .map((res: Response) => res.json());
   }
 }
 

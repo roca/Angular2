@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Title } from '@angular/platform-browser';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'app-welcome',
@@ -8,11 +9,16 @@ import { Title } from '@angular/platform-browser';
 })
 export class WelcomeComponent implements OnInit {
   pageTitle: string;
-  constructor(title: Title) {
+  message: string;
+  constructor(title: Title, private route: ActivatedRoute) {
     console.log(title.getTitle());
     title.setTitle("Welcome");
     this.pageTitle = title.getTitle();
     console.log(document.title);
+    this.route.params.subscribe(params => {
+      console.log("Got new value for params", params);
+      this.message = params['who'];
+    });
   }
 
   ngOnInit() {

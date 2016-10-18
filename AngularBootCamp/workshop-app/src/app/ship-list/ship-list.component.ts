@@ -9,7 +9,9 @@ import {StarshipService, IShip} from '../starship.service';
 export class ShipListComponent implements OnInit {
   ships: IShip[];
   constructor(ss: StarshipService) {
-    this.ships = ss.getStarships();
+    ss.getStarships().subscribe((s: IShip[]) => {
+      this.ships = s;
+    });
   }
 
   ngOnInit() {

@@ -15,9 +15,9 @@ import { StarshipService } from './starship.service';
 import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: '', redirectTo: 'welcome/jack', pathMatch: 'full'},
   {path: 'home', component: HomeComponent},
-  {path: 'welcome', component: WelcomeComponent}
+  {path: 'welcome/:who', component: WelcomeComponent}
 ];
 
 @NgModule({

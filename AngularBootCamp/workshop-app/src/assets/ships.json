@@ -1,0 +1,30 @@
+[{
+    "name": "Consitution",
+    "FTL": "Warp Drive",
+    "weapons": [
+      "Phasers",
+      "Proton Torpedoes"
+    ],
+    "fighters": false,
+    "universe": "Star Trek"
+  },
+  {
+    "name": "Star Destroyer",
+    "FTL": "Hyperdrive",
+    "weapons": [
+      "Laser Cannons",
+      "Ion cannons"
+    ],
+    "fighters": "TIE Fighters",
+    "universe": "Star Wars"
+  },
+  {
+    "name": "Battlestar",
+    "FTL": "Jump Drive",
+    "weapons": [
+      "Flak Cannons",
+      "Nuclear Missiles"
+    ],
+    "fighters": "Vipers",
+    "universe": "Battlestar Galactica"
+  }]
