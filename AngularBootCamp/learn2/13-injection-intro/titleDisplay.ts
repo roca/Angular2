@@ -9,6 +9,7 @@ export class TitleDisplayComponent {
   pageTitle: string;
 
   constructor(t: Title) {
+    t.setTitle("hello");
     this.pageTitle = t.getTitle();
   }
 }
