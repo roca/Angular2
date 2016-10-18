@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {FormBuilder, FormGroup, Validators} from '@angular/forms';
+import 'rxjs/add/operator/map';
 
 @Component({
   selector: 'ship-name',
@@ -12,6 +13,12 @@ export class ShipNameComponent implements OnInit {
     this.starshipNameGroup = fb.group({
       name: ['', [Validators.required, Validators.minLength(3)]]
     });
+    // https://bitbucket.org/jbalbes/ny-abc-oct-2016
+    this.starshipNameGroup.controls['name'].valueChanges
+      .map(val => 'USS ' + val)
+      .subscribe(val => {
+        console.log('starship: ', val);
+      });
   }
 
   ngOnInit() {

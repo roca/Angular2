@@ -1,20 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-
-export interface IFighter {
-  name: string;
-  weapons: string[];
-  lifeSupport: boolean;
-  ftl: string;
-}
-
-export interface IShip {
-  name: string;
-  FTL: string;
-  weapons: string[];
-  fighters: string | boolean;
-  universe: string;
-  // fighterTypes: IFighter[];
-}
+import {StarshipService, IShip} from '../starship.service';
 
 @Component({
   selector: 'ship-list',
@@ -22,37 +7,10 @@ export interface IShip {
   styleUrls: ['./ship-list.component.css']
 })
 export class ShipListComponent implements OnInit {
-  ships = [{
-    'name': 'Consitution',
-    'FTL': 'Warp Drive',
-    'weapons': [
-      'Phasers',
-      'Proton Torpedoes'
-    ],
-    fighters: false,
-    universe: 'Star Trek'
-  },
-  {
-    'name': 'Star Destroyer',
-    'FTL': 'Hyperdrive',
-    'weapons': [
-      'Laser Cannons',
-      'Ion cannons'
-    ],
-    fighters: 'TIE Fighters',
-    universe: 'Star Wars'
-  },
-  {
-    'name': 'Battlestar',
-    'FTL': 'Jump Drive',
-    'weapons': [
-      'Flak Cannons',
-      'Nuclear Missiles'
-    ],
-    fighters: 'Vipers',
-    universe: 'Battlestar Galactica'
-  }];
-  constructor() { }
+  ships: IShip[];
+  constructor(ss: StarshipService) {
+    this.ships = ss.getStarships();
+  }
 
   ngOnInit() {
   }

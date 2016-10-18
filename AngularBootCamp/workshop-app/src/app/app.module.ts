@@ -11,6 +11,8 @@ import { ShipNameComponent } from './ship-name/ship-name.component';
 import { ShipFilterComponent } from './ship-filter/ship-filter.component';
 import { ShipListComponent } from './ship-list/ship-list.component';
 import { ShipCardComponent } from './ship-card/ship-card.component';
+import { StarshipService } from './starship.service';
+import { TestComponent } from './test/test.component';
 
 const routes: Routes = [
   {path: '', redirectTo: '/home', pathMatch: 'full'},
@@ -26,7 +28,8 @@ const routes: Routes = [
     ShipNameComponent,
     ShipFilterComponent,
     ShipListComponent,
-    ShipCardComponent
+    ShipCardComponent,
+    TestComponent
   ],
   imports: [
     BrowserModule,
@@ -35,7 +38,7 @@ const routes: Routes = [
     RouterModule.forRoot(routes),
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [StarshipService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

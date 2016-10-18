@@ -1,6 +1,6 @@
 import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 
-import {IShip} from '../ship-list/ship-list.component';
+import {IShip} from '../starship.service';
 
 @Component({
   selector: 'ship-card',
