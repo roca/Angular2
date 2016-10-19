@@ -2,6 +2,6 @@
   ship-list works!
 </p>
 <ship-card
-  *ngFor="let S of ships"
+  *ngFor="let S of (ships | async)"
   [ship]="S"
   (selectShip)="logSelectedShip($event)"></ship-card>

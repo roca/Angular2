@@ -7,13 +7,13 @@ import { EmployeeLoader, IEmployee } from './employeeLoader';
 
 @Component({
   selector: 'employee-detail',
-  templateUrl: './employeeDetail.html'
+  template: `<employee-display [employee]="theEmployee$ | async"></employee-display>`
 })
 export class EmployeeDetailComponent {
   theEmployee$: Observable<IEmployee>;
 
   constructor(route: ActivatedRoute, loader: EmployeeLoader) {
     const employeeId$ = route.params.map(params => params['employeeId']);
-    this.theEmployee$ = employeeId$.switchMap(id => loader.getDetails(id));
+    this.theEmployee$ = <Observable<IEmployee>> employeeId$.switchMap((id): Observable<IEmployee>  => loader.getDetails(id));
   }
 }

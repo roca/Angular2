@@ -14,7 +14,7 @@ export class RedditImageSearch {
   constructor(private http: Http) { }
 
   search(target: Observable<string>): Observable<IRedditItem[]> {
-    return target.switchMap((val: string) => this.searchRedditPics(val));
+    return <Observable<IRedditItem[]>> target.switchMap((val: string) => this.searchRedditPics(val));
   }
 
   private searchRedditPics(search: string): Observable<IRedditItem[]> {
