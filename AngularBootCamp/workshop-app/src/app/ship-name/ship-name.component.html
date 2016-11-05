@@ -1,0 +1,9 @@
+<p>
+  ship-name works!
+</p>
+<form [formGroup]="starshipNameGroup" (ngSubmit)="launchShip()">
+  <input type="text" formControlName="name">
+  <div>Valid? {{starshipNameGroup.controls.name.valid}}</div>
+  <button [disabled]="!starshipNameGroup.controls.name.valid">Launch!</button>
+  <button type="reset">Cancel</button>
+</form>

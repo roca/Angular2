@@ -1,0 +1,32 @@
+# Run me with "source":
+# . c9setup
+
+# Current Node 6.x, rather than the default old 4.x.
+nvm install 6
+nvm use 6
+nvm alias default 6
+
+# Install global tools
+npm install -g yarn
+yarn global add live-server
+yarn global add angular-cli
+
+# Create new CLI application
+cd ~/workspace
+ng new workshop-app --skip-npm
+
+# Save time by using yarn instead of npm
+cd workshop-app
+yarn
+
+# Set ports for online IDE.
+echo '{ "port": 8081, "live-reload-port": 8082, "host": "0.0.0.0"}' >.ember-cli
+
+# Install typings for the learn2 kit, in case C9 adds TypeScript help
+cd ~/workspace
+cd learn2
+yarn
+
+# run live-server, ready to start class.
+echo "Use 'Preview Running Application' to obtain the served URL."
+live-server
